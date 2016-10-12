@@ -38,7 +38,6 @@ public class ReservController {
 	public String bookRoom(@PathVariable String roomId, Model model)
 	{
 		//ModelAndView model = new ModelAndView("reservation");
-		int id = 0;
 		
 		ReservDataController reservDataController = new ReservDataController();
 		RoomDataController roomDataController = new RoomDataController();
@@ -50,7 +49,6 @@ public class ReservController {
 		if(bool)
 		{
 			String roomName = room.getRoomName();
-			id = room.getRoomId();
 			model.addAttribute("ok", "Room " + roomName + " booked");
 		}
 		else

@@ -33,13 +33,13 @@
 			 <table class="tableContent">
 				 <tr>
 		 			<th>Room Name</th>
-		 			<th>Number of places</th>
+		 			<th>Reserved</th>
 		 		</tr>
 			 	<c:forEach items="${ceva}" var="item" >
 		 		<tr>
-		 			<td>${item.roomName}</td>
-		 			<td>${item.noOfPlaces}</td>
-		 			<td><a href="/SpringRemem/bookRoom.html/${item.roomId}"><button id="regBut">Book</button></a></td>
+		 			<td>${item.reservRoomId}</td>
+		 			<td>${item.reservBool}</td>
+		 			<td><a href="/SpringRemem/cancel.html/${item.reservId}"><button id="cancelBut">Cancel</button></a></td>
 		 		</tr>
 			 	</c:forEach>
 			 </table>

@@ -31,7 +31,7 @@ public class RoomDataController {
 //=======================================================================================iii
 	
 	
-//=================================   GETTING A LIST WITH ALL THE DATA   ========================================!!!	
+//=================================   GETTING DATA   ========================================!!!	
 	public List<RoomDetails> getData(){
 		
 		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();

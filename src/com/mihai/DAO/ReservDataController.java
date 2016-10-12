@@ -98,8 +98,56 @@ public class ReservDataController {
 				}
 			}
 		}
-	//=============================================================================iii
+
 	}
+	
+//===========================================================================iii
+
+	
+	
+//==========================   CANCEL RESERVATION   =============================!!!
+	
+	public boolean cancelReservation(String reservId)
+	{
+		SessionFactory sessionFactory = new Configuration().configure().buildSessionFactory();
+		Session session = sessionFactory.openSession();
+		session.beginTransaction();
+		
+		Criteria criteria = session.createCriteria(Reservations.class);
+		criteria.add(Restrictions.eq("reservId", Integer.parseInt(reservId)));
+		List<Reservations> list = criteria.list();
+		
+		if(list.size() > 1)
+		{
+			session.close();
+			return false;
+		}
+		else
+		{
+			if(list.get(0).getReservBool() == 0)
+			{
+				session.close();
+				return false;
+			}
+			else
+			{
+				Reservations reserv = session.get(Reservations.class, list.get(0).getReservId());
+				
+				reserv.setReservBool(0);
+				
+				session.update(reserv);
+				session.getTransaction().commit();
+				
+				session.close();
+				return true;
+			}
+		}
+		
+	}
+	
+//===============================================================================iii
+	
+	
 	
 //=================================  GET ROOM BY ID  =========================================!!!
 	public Reservations getReservationById(String reservId){
@@ -110,7 +158,6 @@ public class ReservDataController {
 		Reservations reserv = session.get(Reservations.class, Integer.parseInt(reservId));
 				
 		session.close();
-		
 		return reserv;
 	}
 	
@@ -127,6 +174,7 @@ public class ReservDataController {
 		
 		Criteria criteria = session.createCriteria(Reservations.class);
 		List<Reservations> list = criteria.list();
+		
 		return list;
 	}
 	
