@@ -1,0 +1,26 @@
+body{
+    background-color: #EEE;
+}
+
+.mainWrapper{
+  width: 70%;
+  margin: auto;
+  padding: 10px 20px;
+}
+
+.theTitle{
+  color: green;
+  width: 35%;
+  margin:auto;
+}
+
+.theError{
+  color:red;
+}
+
+.loginBox{
+  background-color: #b1aeae;
+  width: 40%;
+  margin: auto;
+  padding: 10px 20px;
+}

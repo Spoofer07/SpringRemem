@@ -1,0 +1,75 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!--
+  ~ Hibernate, Relational Persistence for Idiomatic Java
+  ~
+  ~ License: GNU Lesser General Public License (LGPL), version 2.1 or later.
+  ~ See the lgpl.txt file in the root directory or <http://www.gnu.org/licenses/lgpl-2.1.html>.
+  -->
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+
+    <session-factory>
+
+        <!-- DATABASE CONNECTION SETTINGS -->
+        <!-- <property name="connection.driver_class">org.hsqldb.jdbcDriver</property>
+                    <property name="connection.url">jdbc:hsqldb:hsql://localhost/TestDB</property> -->
+
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="connection.url">jdbc:mysql://localhost/webappdemodb</property>
+        <property name="connection.username">root</property>
+        <property name="connection.password">parola1234</property>
+
+        <!-- JDBC CONNECTION POOL (USE THE BUILT-IN) -->
+        <property name="connection.pool_size">1</property>
+
+        <!-- SQL DIALECT -->
+        <property name="dialect">
+            org.hibernate.dialect.MySQLDialect
+        </property>
+
+        <!-- ENABLE HIBERNATE'S AUTOMATIC SESSION CONTEXT MANAGEMENT -->
+        <property name="current_session_context_class">thread</property>
+        
+        <!--  DISABLE SECOND-LEVEL CACHE -->
+        <property name="cache.provider_class">org.hibernate.cache.NoCacheProvider</property> 
+        
+        
+        <!-- DROP AND RE-CREATE THE DATABSE SCHEMA ON STARTUP -->
+        <property name="hbm2ddl.auto">update</property>
+        
+        
+
+        <!-- <property name="cache.use_query_cache">true</property> -->
+        <!-- <property name="cache.use_second_level_cache">true</property> -->
+        <!-- <property name="cache.use_structured_entries">true</property> -->
+        <!-- <property name="cache.region.factory_class">org.hibernate.cache.jcache.JCacheRegionFactory</property> -->
+        <!-- <property name="net.sf.ehcache.configurationResourceName">/hibernate-config/ehcache.xml</property> -->
+       
+       
+        <!-- ECHO ALL EXECUTED SQL TO STDOUT -->
+        <property name="show_sql">true</property>
+
+		<!-- NAME THE ANNOTATED ENTITY CLASS -->
+        <mapping class="com.mihai.DT.LoginDetails" />
+        <mapping class="com.mihai.DT.RoomDetails" />
+        <mapping class="com.mihai.DT.Reservations" />
+        <!-- 
+	        <mapping class="com.mihai.ibm.DTO.Vehicle" />
+	        <mapping class="com.mihai.ibm.DTO.TwoWheeler" />
+	        <mapping class="com.mihai.ibm.DTO.FourWheeler" /> 
+        -->
+
+        <!-- <mapping resource="hibernate-config/domain/Event.hbm.xml"/>
+        <mapping resource="hibernate-config/domain/Person.hbm.xml"/>
+        <mapping resource="hibernate-config/domain/PhoneNumber.hbm.xml"/>
+        <mapping resource="hibernate-config/domain/Account.hbm.xml"/>
+        <mapping resource="hibernate-config/domain/HolidayCalendar.hbm.xml"/> 
+
+        <mapping resource="hibernate-config/domain/Item.hbm.xml"/>-->
+
+    </session-factory>
+
+</hibernate-configuration>
